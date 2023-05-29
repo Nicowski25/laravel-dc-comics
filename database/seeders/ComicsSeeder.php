@@ -17,7 +17,7 @@ class ComicsSeeder extends Seeder
     {
         //
 
-        $comics = config('db.comics');
+        $comics = config('comics');
 
         foreach ($comics as $comic) {
             $newComic = new Comic();
