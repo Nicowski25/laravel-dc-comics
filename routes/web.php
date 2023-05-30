@@ -16,6 +16,6 @@ use App\Http\Controllers\Guests\PageController;
 */
 
 
-Route::get('/', [PageController::class, 'comics'])->name('home');
+Route::get('/', ComicController::class);
 
 
