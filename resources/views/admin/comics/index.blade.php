@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 
 
 @section('content')
@@ -33,20 +33,26 @@
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody class="table-group-divider">
                 @forelse ($comics as $comic)
-                <tr>
-                    <td scope="row">{{$comic->id}}</td>
-                    <td>
-                        <img width="100" class="img-fluid" src="{{$comic->image}}" alt="">
-                    </td>
-                    <td>{{$comic->name}}</td>
+                
+                <tr class="table-primary">
+                    <td scope="row">
+                        <a href="{{route('admin.comics.show', $comic->id)}}" title="View" class="text-decoration-none">
+                            {{$comic->id}}</td>
+                        </a>
+                    <td><img height="100" src="{{$comic->thumb}}" alt="{{$comic->title}}"></td>
+                    <td>{{$comic->title}}</td>
+                    <td>{{$comic->price}}</td>
+                    <td>{{$comic->series}}</td>
+                    <td>{{$comic->sale_date}}</td>
+                    <td>{{$comic->type}}</td>
+                    <td>{{$comic->artists}}</td>
                     <td>
 
                         <a class="btn btn-primary" href="{{route('admin.comics.show', $comic->id )}}" role="button">View</a>
                         <a class="btn btn-secondary" href="{{route('admin.comics.edit', $comic->id )}}" role="button">Edit</a>
 
-                        /* Attenzione manca modale */
                         <form action="{{route('admin.comics.destroy', $comic->id)}}" method="post">
                             @csrf
                             @method('DELETE')
@@ -55,13 +61,17 @@
 
                     </td>
 
-                </tr>
+                       
+              
 
+                </tr>
+                
                 @empty
-                <tr class="">
-                    <td>No results</td>
+                <tr scope="row">
+                    <td>No records in the db yet.</td>
                 </tr>
                 @endforelse
+
             </tbody>
 
         </table>
