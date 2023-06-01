@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>comic create</h1>
-    <form action="{{route('comics.store')}}" method="post">
+    <form action="{{route('admin.comics.store')}}" method="post">
         @csrf
                         <div class="row">
                             <div class="col-12">

@@ -49,7 +49,7 @@ class ComicController extends Controller
         $newcomic->type = $request->type;
         $newcomic->save();
 
-        return to_route('comics.index');
+        return to_route('admin.comics.index');
     }
 
     /**
